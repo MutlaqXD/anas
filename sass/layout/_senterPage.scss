@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+.card-book{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 200px;
+    height: 305px;
+    border-radius: 6px;
+    overflow:hidden;
+    cursor:pointer;
+    
+}
+
+.pic{
+    width: 200px;
+    height: 150px;
+    mix-blend-mode: multiply;
+}
+
+.card-body{
+    
+       background-color: #fff;
+}
+
+.ditls-book{
+    margin-right: -30px;
+    list-style: none;
+}
+
+.central-div .fa-bookmark{
+    margin-top: -25px;
+    margin-left: -30 px;
+   font-size:30px;
+}
+.central-div .fa-bookmark-red{
+    color:red;
+    border:none;
+    
+}
+
+.price{
+    margin-top: -20 px;
+    margin-right: 10px;
+}
+
+
+.ahref{
+
+ color : black ;
+
+
+}
+
+
