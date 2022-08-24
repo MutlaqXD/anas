@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap"); /* import varbles color */
 /* import hedpage */
 /* senterPage */
+/* card futsher  */
 /* import google fonts */
 @import url("https://fonts.googleapis.com/css2?family=El+Messiri&family=Tajawal:wght@700&display=swap");
 /* fallback for old browsers */
@@ -93,6 +94,28 @@
 
 .ahref {
   color: black;
+}
+
+.crsd-fet {
+  height: 150px;
+  background-color: #fff;
+  border: #fff;
+}
+
+.crsd-fet:hover {
+  border: black;
+  box-shadow: 0px 0px -3px -10px rgb(56, 53, 53);
+}
+
+.icn {
+  padding-right: 10px;
+  width: 10px;
+  font-size: 50px;
+  color: cadetblue;
+}
+
+.fet {
+  padding-right: 5px;
 }
 
 body {
