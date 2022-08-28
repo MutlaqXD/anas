@@ -2,6 +2,7 @@
 /* import hedpage */
 /* senterPage */
 /* card futsher  */
+/* form page */
 /* import google fonts */
 @import url("https://fonts.googleapis.com/css2?family=El+Messiri&family=Tajawal:wght@700&display=swap");
 /* fallback for old browsers */
@@ -36,11 +37,12 @@
 }
 
 .btnshop:hover {
-  color: black;
-  background-color: rgb(255, 216, 216);
+  color: #fff;
+  background-color: rgb(151, 154, 226);
   box-shadow: none;
   height: 150px;
   width: 150px;
+  border: none;
 }
 
 .tex {
@@ -51,19 +53,24 @@
   margin-right: 35px;
 }
 
+.proudct {
+  margin-right: 50px;
+}
+
 .card-book {
   margin-top: 10px;
   margin-bottom: 10px;
   width: 200px;
-  height: 305px;
-  border-radius: 6px;
+  height: 350px;
+  border-radius: 1px;
   overflow: hidden;
   cursor: pointer;
+  border: #fff;
 }
 
 .pic {
-  width: 200px;
-  height: 150px;
+  width: 150px;
+  height: 200px;
   mix-blend-mode: multiply;
 }
 
@@ -96,19 +103,28 @@
   color: black;
 }
 
+.fua {
+  margin-right: 50px;
+}
+
 .crsd-fet {
-  height: 150px;
+  height: 100px;
   background-color: #fff;
   border: #fff;
+  margin: 10px;
 }
 
 .crsd-fet:hover {
+  opacity: 1;
   border: black;
-  box-shadow: 0px 0px -3px -10px rgb(56, 53, 53);
+  box-shadow: 5px 5px 5px 5px black;
+}
+.crsd-fet:hover .icn {
+  color: black;
 }
 
 .icn {
-  padding-right: 10px;
+  padding-right: 70px;
   width: 10px;
   font-size: 50px;
   color: cadetblue;
@@ -116,6 +132,11 @@
 
 .fet {
   padding-right: 5px;
+}
+
+.msg {
+  margin-top: 70px;
+  margin-right: 20px;
 }
 
 body {

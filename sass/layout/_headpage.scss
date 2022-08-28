@@ -37,11 +37,12 @@ background: linear-gradient(to right, #E2E2E2, #C9D6FF); /* W3C, IE 10+/ Edge, F
 }
 
 .btnshop:hover{
-      color : black ;
-      background-color: rgb(255, 216, 216);
+      color : #fff ;
+      background-color: rgb(151, 154, 226);
       box-shadow: none ;
       height: 150px;
       width: 150px;
+      border: none;
     }
 
     .tex{
