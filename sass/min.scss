@@ -12,8 +12,13 @@
 /* form page */
 @use "./layout/form";
 
+ /* view book */
+ @use "./layout/veiwbook";
+ 
 /* import google fonts */
  @import url('https://fonts.googleapis.com/css2?family=El+Messiri&family=Tajawal:wght@700&display=swap');
+
+
 
 body{
       font-family:  'El Messiri', sans-serif;
