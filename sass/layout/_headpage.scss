@@ -1,23 +1,33 @@
 @use "colors" as * ;
 .hedpage{
       background-color: $pghade ;
-      height: 550px;
+      height: 400px;
       background: #C9D6FF;  /* fallback for old browsers */
 background: -webkit-linear-gradient(to right, #E2E2E2, #C9D6FF);  /* Chrome 10-25, Safari 5.1-6 */
 background: linear-gradient(to right, #E2E2E2, #C9D6FF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
 }
-
-.imges{
+.navbar{
+      font-size: bold;
+}
+#navbarSupportedContent{
+      font-size: large;
+      margin-top: 0px;
+      margin-right: 1000px;
+      float: left;
+}
+/*.imges{
       
       background-image: url("/image/Book2-Cover-Mockup-S32EJNB.png");
       height: 540px;
       width: 850px;
     border-radius: 10px 10px 10px 10px;
     mix-blend-mode: multiply;
-}
+} */
 
 .brand{
+      width: 150px;
+      height: 100px;
       mix-blend-mode: multiply;
 }
 
@@ -47,6 +57,10 @@ background: linear-gradient(to right, #E2E2E2, #C9D6FF); /* W3C, IE 10+/ Edge, F
 
     .tex{
       margin-top: 100px;
+      margin-right: 100px;
+      .sml{
+            margin-right: 150px;
+      }
     
     }
     .sml{

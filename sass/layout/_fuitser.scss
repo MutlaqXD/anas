@@ -13,7 +13,7 @@
 .crsd-fet:hover{
       opacity: 1;
       border: black;
-      box-shadow: 5px 5px 5px 5px rgb(155, 152, 152);
+      box-shadow: 5px 5px 5px 5px rgb(218, 213, 213);
       .icn{
             color: black;
       }
@@ -21,12 +21,14 @@
 }
 
 .icn{
-      padding-right: 70px;
+     
+      padding-right: 200px;
       width: 10px;
       font-size: 50px;
       color: cadetblue;
 }
 
 .fet{
-      padding-right: 5px;
+     
+      text-align: center;
 }
