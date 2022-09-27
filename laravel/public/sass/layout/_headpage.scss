@@ -1,0 +1,75 @@
+@use "colors" as * ;
+.hedpage{
+      background-color: $pghade ;
+      height: 600px;
+      background: #C9D6FF;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #E2E2E2, #C9D6FF);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #E2E2E2, #C9D6FF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+.navbar{
+      font-size: large;
+}
+#navbarSupportedContent{
+      font-size: large;
+      margin-top: 0px;
+      margin-right: 100px;
+      float: left;
+}
+.imges{
+
+      background-image: url("/image/Book2-Cover-Mockup-S32EJNB.png");
+      height: 540px;
+      width: 850px;
+    border-radius: 5px 5px 5px 5px;
+    mix-blend-mode: multiply;
+}
+
+.brand{
+      width: 150px;
+      height: 100px;
+      mix-blend-mode: multiply;
+}
+
+.btnshop{
+
+    margin-top: 330px;
+    margin-right: 400px ;
+    margin-bottom: 250px;
+    background-color: #fff;
+    border-radius: 900px;
+    height: 130px;
+    width: 130px;
+    border-color: #C9D6FF;
+    box-shadow:  -10px 0px 3px 0px rgb(56, 53, 53);
+
+
+
+}
+
+.btnshop:hover{
+      color : #fff ;
+      background-color: rgb(151, 154, 226);
+      box-shadow: none ;
+      height: 150px;
+      width: 150px;
+      border: none;
+    }
+
+    .tex{
+      margin-top: 100px;
+      margin-right: 100px;
+      .sml{
+            margin-right: 150px;
+      }
+
+    }
+    .sml{
+      margin-right: 35px;
+}
+
+.search{
+      width: 800px;
+      border-radius: 8px;
+      margin-top: 10px;
+}

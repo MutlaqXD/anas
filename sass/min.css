@@ -10,7 +10,7 @@
 /* fallback for old browsers */
 .hedpage {
   background-color: #C9D6FF;
-  height: 400px;
+  height: 600px;
   background: #C9D6FF; /* fallback for old browsers */ /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #E2E2E2, #C9D6FF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
@@ -22,18 +22,18 @@
 #navbarSupportedContent {
   font-size: large;
   margin-top: 0px;
-  margin-right: 1000px;
+  margin-right: 100px;
   float: left;
 }
 
-/*.imges{
+.imges {
+  background-image: url("/image/Book2-Cover-Mockup-S32EJNB.png");
+  height: 540px;
+  width: 850px;
+  border-radius: 5px 5px 5px 5px;
+  mix-blend-mode: multiply;
+}
 
-      background-image: url("/image/Book2-Cover-Mockup-S32EJNB.png");
-      height: 540px;
-      width: 850px;
-    border-radius: 10px 10px 10px 10px;
-    mix-blend-mode: multiply;
-} */
 .brand {
   width: 150px;
   height: 100px;
@@ -48,6 +48,7 @@
   border-radius: 900px;
   height: 130px;
   width: 130px;
+  border-color: #C9D6FF;
   box-shadow: -10px 0px 3px 0px rgb(56, 53, 53);
 }
 
@@ -70,6 +71,12 @@
 
 .sml {
   margin-right: 35px;
+}
+
+.search {
+  width: 800px;
+  border-radius: 8px;
+  margin-top: 10px;
 }
 
 .proudct {
