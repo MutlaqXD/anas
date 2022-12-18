@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('name');
             $table->double('price');
             $table->string('description');
-            $table->text('imge');
+            $table->text('image');
             $table->unsignedBigInteger('user_id');
 
             $table->foreign('user_id')

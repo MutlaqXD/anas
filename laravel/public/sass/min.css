@@ -16,7 +16,7 @@
 }
 
 .navbar {
-  font-size: bold;
+  font-size: large;
 }
 
 #navbarSupportedContent {
@@ -27,7 +27,7 @@
 }
 
 .imges {
-  background-image: url("image/Book2-Cover-Mockup-S32EJNB.png");
+  background-image: url("Book2-Cover-Mockup-S32EJNB.png");
   height: 540px;
   width: 850px;
   border-radius: 5px 5px 5px 5px;

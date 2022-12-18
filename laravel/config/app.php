@@ -181,10 +181,15 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+        RealRashid\SweetAlert\SweetAlertServiceProvider::class,
+        Barryvdh\DomPDF\ServiceProvider::class,
+
+
 
         /*
          * Package Service Providers...
          */
+        Intervention\Image\ImageServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -196,9 +201,14 @@ return [
         App\Providers\RouteServiceProvider::class,
         App\Providers\FortifyServiceProvider::class,
         App\Providers\JetstreamServiceProvider::class,
+        Darryldecode\Cart\CartServiceProvider::class,
+        Paytabscom\Laravel_paytabs\PaypageServiceProvider::class,
 
     ],
 
+
+    /* cart var */
+    'Cart' => Darryldecode\Cart\Facades\CartFacade::class,
     /*
     |--------------------------------------------------------------------------
     | Class Aliases
@@ -212,6 +222,13 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // 'ExampleClass' => App\Example\ExampleClass::class,
+        'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
+        'Image' => Intervention\Image\Facades\Image::class,
+        'PDF' => Barryvdh\DomPDF\Facade::class,
+
     ])->toArray(),
+
+
+
 
 ];

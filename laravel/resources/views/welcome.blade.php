@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ar">
 
@@ -12,14 +11,28 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.rtl.min.css"
           integrity="sha384-gXt9imSW0VcJVHezoNQsP+TNrjYXoGcrqBZJpry9zJt8PCQjobwmhMGaDHTASo9N" crossorigin="anonymous">
     <link rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link rel='stylesheet' type='text/css' media='screen' href="{{asset('../public/sass/min.css')}}">
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
+    <link rel='stylesheet' type='text/css' media='screen' href="{{asset('sass/min.css')}}">
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 </head>
 
 <body dir="rtl">
 
-
+@php
+    $allbooks = App\Models\books::latest()->get();
+    $products = App\Models\books::latest()->get();
+@endphp
+@include('sweetalert::alert')
 <header>
+
+
+
+
     <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
             <a class="navbar-brand" href="#" style="color : white ;">
@@ -32,28 +45,68 @@
 
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#" style="color: rgb(24, 30, 24) ; font-size: larger;">الرئيسية</a>
+                        <a class="nav-link active" aria-current="page" href="#"
+                           style="color: rgb(24, 30, 24) ; font-size: larger;">الرئيسية</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#" style="color: rgb(24, 30, 24) ; font-size: larger;">الكتب</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" tabindex="-1" aria-disabled="true" style="color:rgb(24, 30, 24) ;">عن المنصة</a>
+                        <a class="nav-link" href="#" tabindex="-1" aria-disabled="true" style="color:rgb(24, 30, 24) ;">عن
+                            المنصة</a>
                     </li>
                     <li>
-                        <a href="" style="color: rgb(24, 30, 24) ; font-size: xx-large;">
-                <span class="material-symbols-outlined">
-                  shopping_cart
-                  </span>
-                        </a>
+                        <div class="row">
+                            <div class="col-lg-12 col-sm-12 col-12 main-section">
+                                <div class="dropdown">
+                                    <button type="button" class="btn btn-info" data-toggle="dropdown">
+                                        <i class="" aria-hidden="true"></i> سلة المشتريات <span class="badge badge-pill badge-danger">{{ count((array) session('cart')) }}</span>
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <div class="row total-header-section">
+                                            <div class="col-lg-6 col-sm-6 col-6">
+                                                <i class="fa fa-shopping-cart" aria-hidden="true"></i> <span class="badge badge-pill badge-danger">{{ count((array) session('cart')) }}</span>
+                                            </div>
+                                            @php $total = 0 @endphp
+                                            @foreach((array) session('cart') as $id => $details)
+                                                @php $total += $details['price'] * $details['quantity'] @endphp
+                                            @endforeach
+                                            <div class="col-lg-6 col-sm-6 col-6 total-section text-right">
+                                                <p>المجموع: <span class="text-info"> {{ $total }} SAR </span></p>
+                                            </div>
+                                        </div>
+                                        @if(session('cart'))
+                                            @foreach(session('cart') as $id => $details)
+                                                <div class="row cart-detail">
+                                                    <div class="col-lg-4 col-sm-4 col-4 cart-detail-img">
+                                                        <img src="{{ $details['image'] }}" />
+                                                    </div>
+                                                    <div class="col-lg-8 col-sm-8 col-8 cart-detail-product">
+                                                        <p>{{ $details['name'] }}</p>
+                                                        <span class="price text-info"> SAR {{ $details['price'] }}</span> <span class="count"> الكمية:{{ $details['quantity'] }}</span>
+                                                    </div>
+                                                </div>
+                                            @endforeach
+                                        @endif
+                                        <div class="row">
+                                            <div class="col-lg-12 col-sm-12 col-12 text-center checkout">
+                                                <a href="{{ route('cart') }}" class="btn btn-primary btn-block">مشاهدة السلة</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </li>
                     <li class="nav-item">
                         @if (Route::has('login'))
 
                             @auth
-                                <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 dark:text-gray-500 underline"></a>
+                                <a href="{{ url('/dashboard') }}"
+                                   class="text-sm text-gray-700 dark:text-gray-500 underline"></a>
                             @else
-                                <a class="nav-link" href="{{ route('login') }}" tabindex="-1" aria-disabled="true" style="color: rgb(24, 30, 24) ; font-size: x-large;">
+                                <a class="nav-link" href="{{ route('login') }}" tabindex="-1" aria-disabled="true"
+                                   style="color: rgb(24, 30, 24) ; font-size: x-large;">
                 <span class="material-symbols-outlined" style="font-size: x-large;">
                   login
                   </span>
@@ -76,13 +129,15 @@
 
                 <div class="col-lg-4 col-md-12 col-sm-12">
                     <div class="tex container">
-                        <h2 >الكتب العلمية بين يديك</h2>
-                        <small class="sml" >خير جليس في الزمان كتاب</small>
+                        <h1></h1>
+                        <h2>الكتب العلمية بين يديك</h2>
+                        <small class="sml">خير جليس في الزمان كتاب</small>
                     </div>
                 </div>
 
                 <div class="col-lg-4 col-md-12 col-sm-12">
-                    <div class="imges container">
+                    <div class="imges">
+
                     </div>
                 </div>
 
@@ -104,149 +159,24 @@
             <div class="row proudct">
 
 
-                <div class="col-lg-3 col-md-3 col-sm-12">
-
-                    <div class="card card-book">
-                        <img class="pic" src="./image/sincerely-media-CXYPfveiuis-unsplash.jpg" alt="Card image cap">
-                        <div class="card-body">
-                            <div class="central-div">
-                                <i class="fa fa-bookmark"></i>
-
-
+                <div class="row">
+                    @foreach($products as $product)
+                        <div class="col-xs-18 col-sm-6 col-md-3">
+                            <div class="thumbnail">
+                                <img src="{{ $product->image }}" alt="">
+                                <div class="caption">
+                                    <h4>اسم الكتاب :{{ $product->name }}</h4>
+                                    <p>وصف الكتاب :{{ $product->description }}</p>
+                                    <p><strong>السعر: </strong> {{ $product->price }}SAR </p>
+                                    <p class="btn-holder"><a href="{{ route('add.to.cart', $product->id) }}" class="btn btn-warning btn-block text-center" role="button">إضافة لسلة</a> </p>
+                                </div>
                             </div>
-                            <ul class="ditls-book">
-
-                                <li>
-                                    <h6>اسم الكتاب :
-                                        <small class="name-book">math 101</small>
-                                    </h6>
-                                </li>
-                                <li>
-                                    <h6>السعر :<small class="price">120</small>
-
-                                    </h6>
-
-                                </li>
-                                <li class="fa-solid fa-cart-shopping">
-                                    <a class="ahref" href="bookditls.html" data-toggle="modal" data-target="#product_view">اضافه الى
-                                        السلة </a>
-                                    <span class="material-symbols-outlined" style="margin-right: 5px;" ;>
-                      add_shopping_cart
-                    </span>
-                                </li>
-
-                            </ul>
                         </div>
-                    </div>
-
+                    @endforeach
                 </div>
-                <div class="col-lg-3 col-md-3 col-sm-12">
-
-                    <div class="card card-book">
-                        <img class="pic" src="./image/sincerely-media-CXYPfveiuis-unsplash.jpg" alt="Card image cap">
-                        <div class="card-body">
-                            <div class="central-div">
-                                <i class="fa fa-bookmark"></i>
-
-                            </div>
-                            <ul class="ditls-book">
-
-                                <li>
-                                    <h6>اسم الكتاب :
-                                        <small class="name-book">math 101</small>
-                                    </h6>
-                                </li>
-                                <li>
-                                    <h6>السعر :<small class="price">120</small>
-
-                                    </h6>
-
-                                </li>
-                                <li class="fa-solid fa-cart-shopping">
-                                    <a class="ahref" href="bookditls.html" data-toggle="modal" data-target="#product_view">اضافه الى
-                                        السلة </a>
-                                    <span class="material-symbols-outlined" style="margin-right: 5px;" ;>
-                      add_shopping_cart
-                    </span>
-                                </li>
-
-                            </ul>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-12">
-
-                    <div class="card card-book">
-                        <img class="pic" src="./image/sincerely-media-CXYPfveiuis-unsplash.jpg" alt="Card image cap">
-                        <div class="card-body">
-                            <div class="central-div">
-                                <i class="fa fa-bookmark"></i>
 
 
-                            </div>
-                            <ul class="ditls-book">
 
-                                <li>
-                                    <h6>اسم الكتاب :
-                                        <small class="name-book">math 101</small>
-                                    </h6>
-                                </li>
-                                <li>
-                                    <h6>السعر :<small class="price">120</small>
-
-                                    </h6>
-
-                                </li>
-                                <li class="fa-solid fa-cart-shopping">
-                                    <a class="ahref" href="bookditls.html" data-toggle="modal" data-target="#product_view">اضافه الى
-                                        السلة </a>
-                                    <span class="material-symbols-outlined" style="margin-right: 5px;" ;>
-                      add_shopping_cart
-                    </span>
-                                </li>
-
-                            </ul>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-12">
-
-                    <div class="card card-book">
-                        <img class="pic" src="./image/sincerely-media-CXYPfveiuis-unsplash.jpg" alt="Card image cap">
-                        <div class="card-body">
-                            <div class="central-div">
-                                <i class="fa fa-bookmark"></i>
-
-
-                            </div>
-                            <ul class="ditls-book">
-
-                                <li>
-                                    <h6>اسم الكتاب :
-                                        <small class="name-book">math 101</small>
-                                    </h6>
-                                </li>
-                                <li>
-                                    <h6>السعر :<small class="price">120</small>
-
-                                    </h6>
-
-                                </li>
-                                <li class="fa-solid fa-cart-shopping">
-                                    <a class="ahref" href="bookditls.html" data-toggle="modal" data-target="#product_view">اضافه الى
-                                        السلة </a>
-                                    <span class="material-symbols-outlined" style="margin-right: 5px;" ;>
-                      add_shopping_cart
-                    </span>
-                                </li>
-
-                            </ul>
-                        </div>
-                    </div>
-
-                </div>
             </div>
 
         </div>
@@ -285,35 +215,37 @@
         </div>
     </div>
     <br><br><br>
-    <div class="container-fluid">
-        <div class="row">
-            <hr>
-            <div class="col-lg-4 col-md-12 col-sm-12">
-                <div class="container">
-                    <h3 class="msg"> نسعد بتواصلك معنا </h3>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-12 col-sm12">
-                <form>
-                    <div class="form-group">
-                        <label for="exampleFormControlInput1">البريد الالكتروني</label>
-                        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-                    </div>
+{{--    <div class="container-fluid">--}}
+{{--        <div class="row">--}}
+{{--            <hr>--}}
+{{--            <div class="col-lg-4 col-md-12 col-sm-12">--}}
+{{--                <div class="container">--}}
+{{--                    <h3 class="msg"> نسعد بتواصلك معنا </h3>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            <div class="col-lg-4 col-md-12 col-sm12">--}}
+{{--                <form action="" method="post" enctype="multipart/form-data">--}}
+{{--                    <div class="form-group">--}}
+{{--                        <label for="exampleFormControlInput1">البريد الالكتروني</label>--}}
+{{--                        <input type="email" class="form-control" name="email"--}}
+{{--                               placeholder="name@example.com">--}}
+{{--                    </div>--}}
 
-                    <div class="form-group">
-                        <label for="exampleFormControlTextarea1">ضع رسالتك هنا ...</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <br>
-                        <button class="btn btn-mg btn-primary">إرسال</button>
-                    </div>
+{{--                    <div class="form-group">--}}
+{{--                        <label for="exampleFormControlTextarea1">ضع رسالتك هنا ...</label>--}}
+{{--                        <textarea class="form-control" name="masg" rows="3"></textarea>--}}
+{{--                    </div>--}}
+{{--                    <div class="form-group">--}}
+{{--                        <br>--}}
+{{--                        <button class="btn btn-mg btn-primary" type="submit" name="add">إرسال</button>--}}
+{{--                    </div>--}}
 
-                </form>
-            </div>
-        </div>
-        <hr>
-    </div>
+{{--                </form>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--        <hr>--}}
+{{--    </div>--}}
+
 
 
 
@@ -356,7 +288,22 @@
     </div>
     <!-- Copyright -->
 </footer>
-<script src="{{asset('../public/sass/min.css')}}"></script>
+<script src="{{asset('sass/min.css')}}"></script>
+
+
+
+
+
+
+
+
+
+<br/>
+
+
+
+
+
 
 </body>
 
